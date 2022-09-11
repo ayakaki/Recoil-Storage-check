@@ -34,13 +34,20 @@ export const RecoilCsrSrc = () => {
       <h1>Recoil CSR 遷移元 ページです。</h1>
       <div>
         <button onClick={setValue}>Recoil に値を設定</button>
-        < p>Recoilのみ：{recoilOnlyState}</ p>
-        < p>Recoil管理LocalStorage（Recoil呼び出し）：{recoilSetLocalStorage}</ p>
-        < p>Recoil管理LocalStorage（localStorage読み出し）：{recoilValueByLocalStorage}</ p>
-        < p>直接 LocalStorage に格納した値：{valueInLocalStorage}</ p>
-        <Link href="/recoil/csr/dst">
-          <a>別 CSR ページ遷移する</a>
-        </Link>
+        <p>Recoilのみ：{recoilOnlyState}</p>
+        <p>Recoil管理LocalStorage（Recoil呼び出し）：{recoilSetLocalStorage}</p>
+        <p>Recoil管理LocalStorage（localStorage読み出し）：{recoilValueByLocalStorage}</p>
+        <p>直接 LocalStorage に格納した値：{valueInLocalStorage}</p>
+        <p>
+          <Link href="/recoil/csr/dst">
+            <a>▶︎ CSR 取得ページ遷移する</a>
+          </Link>
+        </p>
+        <p>
+          <Link href="/recoil/ssr/dst">
+            <a>▶︎ SSR 取得ページ遷移する</a>
+          </Link>
+        </p>
       </div>
     </>
   )

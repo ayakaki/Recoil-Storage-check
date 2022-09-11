@@ -26,9 +26,16 @@ export const RecoilCsrDst = () => {
         <p>Recoil管理LocalStorage（Recoil呼び出し）：{recoilSetLocalStorage}</p>
         <p>Recoil管理LocalStorage（localStorage読み出し）：{recoilValueByLocalStorage}</p>
         < p>直接 LocalStorage に格納した値：{valueInLocalStorage}</ p>
-        <Link href="/recoil/csr/src">
-          <a>遷移元 CSR ページ遷移する</a>
-        </Link>
+        <p>
+          <Link href="/recoil/csr/src">
+            <a>▶︎ CSR 設定ページ遷移する</a>
+          </Link>
+        </p>
+        <p>
+          <Link href="/recoil/ssr/dst">
+            <a>▶︎ SSR 取得ページ遷移する</a>
+          </Link>
+        </p>
       </div>
     </>
   )
