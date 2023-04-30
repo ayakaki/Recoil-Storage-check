@@ -1,34 +1,16 @@
 import { NextPage } from 'next';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import {
-  recoilPersistAtom,
-  recoilPersistState,
-} from '../store/recoilPersistState';
-import { User } from '../models/user';
-import { useRouter } from 'next/router';
+import { useRecoilValue } from 'recoil';
+import { recoilPersistState } from '../../store/recoilPersistState';
 import React from 'react';
-import { recoilOnlyAtom, recoilOnlyState } from '../store/recoilOnlyState';
+import Link from 'next/link';
+import { recoilOnlyState } from '../../store/recoilOnlyState';
 
-const Home: NextPage = () => {
+const Dist: NextPage = () => {
   const recoilOnly = useRecoilValue(recoilOnlyState);
-  const setRecoilOnly = useSetRecoilState(recoilOnlyAtom);
-
   const recoilPersist = useRecoilValue(recoilPersistState);
-  const setRecoilPersist = useSetRecoilState(recoilPersistAtom);
 
-  const router = useRouter();
-
-  const afterUserValue: User = {
-    name: '吾郎',
-    from: '大阪',
-    age: 23,
-    favoriteFoods: ['お好み焼き', '餃子'],
-  };
-
-  const setAndJump = () => {
-    setRecoilOnly(afterUserValue);
-    setRecoilPersist(afterUserValue);
-    router.push('/dist');
+  const deletePersist = () => {
+    localStorage.removeItem('recoil-persist');
   };
 
   return (
@@ -61,9 +43,12 @@ const Home: NextPage = () => {
           })}
         </li>
       </ul>
-      <button onClick={setAndJump}>設定 & 遷移</button>
+      <p>
+        <Link href="/">TOPページへ遷移</Link>
+      </p>
+      <button onClick={deletePersist}>LocalStorageの値を削除</button>
     </>
   );
 };
 
-export default Home;
+export default Dist;
